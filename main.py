@@ -29,6 +29,11 @@ app.add_middleware(
 class InputFeatures(BaseModel):
     features: list[float]
 
+@app.get("/")
+def home():
+    return {"message": "GLOF Risk Prediction API is running!"}
+
+
 @app.post("/predict")
 async def predict(input_data: InputFeatures):
     try:
